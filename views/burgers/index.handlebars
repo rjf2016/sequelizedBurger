@@ -1,0 +1,76 @@
+
+<div id="logoImg">
+    <img  src="\assets\img\burgerbash.png">
+</div>
+
+<div id="logoText">Feed your Soul!</div>
+
+<div class="row">
+    <div class="col-md-4">
+      <h3>Burgers Created</h3>
+         {{#each burgers}}
+         {{#unless this.devoured}}
+    
+       <div class="row">
+          <div class="col-md-12">
+        
+
+              <form id="frmDevour" action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="1">&nbsp;{{this.id}}. {{this.name}}&nbsp;&nbsp;{{this.Store.name}}
+                <button type="submit" class="btn-xs">eat!</button>
+
+              </form>
+          </div>
+        </div>
+        {{/unless}}
+     {{/each}}
+    </div>  <!-- close out the outer col div -->
+
+
+  <!-- start: middle div for input box to type in a new burger -->
+  <div class="col-md-4">
+
+                <h3>Add a Burger</h3>
+               
+                <form class="form-inline" action="burgers/create" method="POST">
+                <div class="form-group">
+                  <label for="email">Burger Name:</label>
+                  <input type="text" class="form-control" name="burger_name" id="ca"> <br />
+                  <label for="email">&nbsp;&nbsp;Store Name:</label>
+                  <input type="text" class="form-control" name="store_name" id="st">
+                  <input type="hidden" name="devoured" value="1">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+                
+              </form>
+
+  </div>   <!-- end: middle div for input box to type in a new burger -->
+
+
+  <div class="col-md-4">
+    <h3>Devoured Burgers</h3>
+            {{#each burgers}}
+             {{#if this.devoured}}
+                <div class="row">
+                  <div class="col-md-12">
+                        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="devoured" value="0">&nbsp;{{this.id}}. {{this.name}}&nbsp;&nbsp;{{this.Store.name}}
+                            <button type="submit" class="btn-xs">Reset</button>
+                        </form>
+                        <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST">
+                            <input type="hidden" id='burgerId' value='{{this.id}}'>                      
+                            <button type="submit" class="btn-xs">Delete</button>
+                        </form>
+                        
+                  </div>
+               </div>
+              {{/if}}
+                
+             {{/each}}
+      </div>
+
+</div>
+
+
+
+

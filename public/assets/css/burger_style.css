@@ -1,0 +1,45 @@
+
+li {
+  background: #FAEBD7;
+  margin: 5px;
+  padding: 5px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  background: aqua;
+  margin: 5px;
+  padding: 5px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+
+.heading{
+	font-family:'Georgia', Times, Times New Roman, serif;
+	font-size: 18pt;	
+	position:relative;
+	height:32px;
+	background:#ffffff;
+	color: gray;		
+	border-bottom: 2px solid #cccccc;
+	margin-bottom: 10px;
+	top:2px;
+
+}
+
+
+#logoImg{
+    text-align: center;
+}
+#logoText{
+    text-align: center;
+    font-family:'Georgia', Times, Times New Roman, serif;
+    font-size: 18pt;  
+    
+}
